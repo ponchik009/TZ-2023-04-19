@@ -27,7 +27,29 @@
   width: 100%;
 }
 
-.Bottom {
-  width: 100%;
+.CenterProducts {
   display: flex;
+  flex-direction: column;
+  gap: 32px;
+  align-items: center;
+
+  width: 100%;
+}
+
+@media (max-width: 900px) {
+  .TopSearch {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 638px) {
+  .Catalog {
+    padding: 0 16px;
+  }
+  .Center {
+    flex-direction: column;
+  }
+  .TopSearch {
+    margin-left: 0;
+  }
 }

@@ -6,3 +6,9 @@
 
   list-style: none;
 }
+
+@media (max-width: 638px) {
+  .List {
+    justify-content: center;
+  }
+}

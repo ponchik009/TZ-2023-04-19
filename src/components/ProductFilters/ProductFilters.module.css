@@ -6,6 +6,12 @@
   width: 120px;
 }
 
+.TitleSection {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
 .Title {
   font-size: 32px;
 }

@@ -63,17 +63,18 @@ export const Catalog = () => {
       </section>
       <section className={styles.Center}>
         <ProductFilters brands={brands} currentFilters={filters} />
-        <ProductsList
-          items={items}
-          cartItems={cartItems}
-          onButtonClick={(product: ProductType) =>
-            dispatch(addItemToCart(product))
-          }
-        />
+        <div className={styles.CenterProducts}>
+          <ProductsList
+            items={items}
+            cartItems={cartItems}
+            onButtonClick={(product: ProductType) =>
+              dispatch(addItemToCart(product))
+            }
+          />
+          <ProductPagination page={page} maxPage={maxPage} />
+        </div>
       </section>
-      <section className={styles.Bottom}>
-        <ProductPagination page={page} maxPage={maxPage} />
-      </section>
+      <section className={styles.Bottom}></section>
     </main>
   );
 };

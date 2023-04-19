@@ -3,6 +3,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { ProductType, ProductWithCountType, SortType } from "../../types/types";
 import { CatalogApi } from "../../api/CatalogApi";
 import { RootState } from "../store";
+import { CartApi } from "../../api/CartApi";
 
 export interface CartState {
   cartItems: ProductWithCountType[];
@@ -13,6 +14,17 @@ const initialState: CartState = {
   cartItems: [],
   totalPrice: 0,
 };
+
+export const submitOrder = createAsyncThunk(
+  "cart/submitOrder",
+  async (data: {
+    items: ProductWithCountType[];
+    name: string;
+    phone: string;
+  }) => {
+    return CartApi.sendInfo(data);
+  }
+);
 
 const cartSlice = createSlice({
   name: "cart",
@@ -30,7 +42,7 @@ const cartSlice = createSlice({
     },
     removeItemFromCart(state, action: PayloadAction<number>) {
       state.cartItems = state.cartItems.filter(
-        (i) => i.product.id === action.payload
+        (i) => i.product.id !== action.payload
       );
 
       state.totalPrice = state.cartItems.reduce(
@@ -42,8 +54,21 @@ const cartSlice = createSlice({
       state,
       action: PayloadAction<{ id: number; count: number }>
     ) {
-      state.cartItems.find((i) => i.product.id === action.payload.id)!.count =
-        action.payload.count;
+      const item = state.cartItems.find(
+        (i) => i.product.id === action.payload.id
+      );
+
+      if (!item) {
+        return;
+      }
+
+      item!.count = action.payload.count;
+
+      if (item.count === 0) {
+        state.cartItems = state.cartItems.filter(
+          (i) => i.product.id !== item!.product.id
+        );
+      }
 
       state.totalPrice = state.cartItems.reduce(
         (acc, curr) => acc + curr.count * curr.product.regular_price.value,
@@ -55,9 +80,14 @@ const cartSlice = createSlice({
       state.totalPrice = 0;
     },
   },
+  extraReducers: (builder) => {
+    builder
+      .addCase(submitOrder.pending, (state) => {})
+      .addCase(submitOrder.fulfilled, (state) => {});
+  },
 });
 
-export const { addItemToCart, removeItemFromCart, changeItemCount } =
+export const { addItemToCart, removeItemFromCart, changeItemCount, resetCart } =
   cartSlice.actions;
 
 export const selectCartItems = (state: RootState) => state.cart.cartItems;
