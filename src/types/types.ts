@@ -12,13 +12,18 @@ export type PriceType = {
   value: number;
 };
 
+export type BrandShortType = {
+  id: number;
+  title: string;
+};
+
 export type ProductType = {
   type: string;
   id: number;
   sku: string;
   title: string;
   image: string;
-  brand: number;
+  brand: BrandShortType;
   regular_price: PriceType;
 };
 

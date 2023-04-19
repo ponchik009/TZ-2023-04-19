@@ -1,0 +1,26 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: start;
+  width: 120px;
+}
+
+.Title {
+  font-size: 32px;
+}
+
+.Filters {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  width: 100%;
+  gap: 4px;
+}
+
+.Label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 24px;
+}

@@ -9,7 +9,10 @@
       "value": 27.12
     },
     "image": "/images/1.png",
-    "brand": 9
+    "brand": {
+      "id": 9,
+      "title": "Brand 9"
+    }
   },
   {
     "type": "simple",
@@ -21,7 +24,10 @@
       "value": 36.87
     },
     "image": "/images/2.png",
-    "brand": 8
+    "brand": {
+      "id": 8,
+      "title": "Brand 8"
+    }
   },
   {
     "type": "simple",
@@ -33,7 +39,10 @@
       "value": 28.91
     },
     "image": "/images/3.png",
-    "brand": 2
+    "brand": {
+      "id": 2,
+      "title": "Brand 2"
+    }
   },
   {
     "type": "simple",
@@ -45,7 +54,10 @@
       "value": 41.23
     },
     "image": "/images/4.png",
-    "brand": 7
+    "brand": {
+      "id": 7,
+      "title": "Brand 7"
+    }
   },
   {
     "type": "simple",
@@ -54,10 +66,13 @@
     "title": "Product 5",
     "regular_price": {
       "currency": "USD",
-      "value": 88.00
+      "value": 88.0
     },
     "image": "/images/5.png",
-    "brand": 3
+    "brand": {
+      "id": 3,
+      "title": "Brand 3"
+    }
   },
   {
     "type": "simple",
@@ -69,7 +84,10 @@
       "value": 127.41
     },
     "image": "/images/6.png",
-    "brand": 6
+    "brand": {
+      "id": 6,
+      "title": "Brand 6"
+    }
   },
   {
     "type": "simple",
@@ -78,10 +96,13 @@
     "title": "Product 7",
     "regular_price": {
       "currency": "USD",
-      "value": 123.40
+      "value": 123.4
     },
     "image": "/images/7.png",
-    "brand": 5
+    "brand": {
+      "id": 5,
+      "title": "Brand 5"
+    }
   },
   {
     "type": "simple",
@@ -93,7 +114,10 @@
       "value": 92.32
     },
     "image": "/images/8.png",
-    "brand": 1
+    "brand": {
+      "id": 1,
+      "title": "Brand 1"
+    }
   },
   {
     "type": "simple",
@@ -102,9 +126,42 @@
     "title": "Product 9",
     "regular_price": {
       "currency": "USD",
-      "value": 53.40
+      "value": 53.4
     },
     "image": "/images/9.png",
-    "brand": 2
+    "brand": {
+      "id": 2,
+      "title": "Brand 2"
+    }
+  },
+  {
+    "type": "simple",
+    "id": 10,
+    "sku": "s10",
+    "title": "Product 10",
+    "regular_price": {
+      "currency": "USD",
+      "value": 53.4
+    },
+    "image": "/images/9.png",
+    "brand": {
+      "id": 3,
+      "title": "Brand 3"
+    }
+  },
+  {
+    "type": "simple",
+    "id": 11,
+    "sku": "s11",
+    "title": "Product 11",
+    "regular_price": {
+      "currency": "USD",
+      "value": 53.4
+    },
+    "image": "/images/9.png",
+    "brand": {
+      "id": 4,
+      "title": "Brand 4"
+    }
   }
 ]

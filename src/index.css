@@ -13,7 +13,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
 
+body,
+#root {
   width: 100%;
   height: 100vh;
 }
@@ -21,4 +24,10 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none; /* no underline */
+  all: unset;
 }
