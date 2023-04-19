@@ -63,7 +63,7 @@ export class CatalogApi {
 
     return Promise.resolve({
       products: sorted.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE),
-      maxPage: Math.ceil(products.length / PAGE_SIZE),
+      maxPage: Math.ceil(sorted.length / PAGE_SIZE),
     });
   }
 }
