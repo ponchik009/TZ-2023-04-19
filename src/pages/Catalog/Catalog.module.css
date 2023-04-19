@@ -1,7 +1,6 @@
 .Catalog {
   width: 100%;
-  margin: auto;
-  max-width: 1170px;
+
   height: 100%;
   display: flex;
   flex-direction: column;

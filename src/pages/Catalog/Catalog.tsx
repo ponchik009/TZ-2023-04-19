@@ -7,7 +7,6 @@ import {
   fetchBrands,
   fetchProducts,
   selectProducts,
-  updatePage,
   updateSearch,
 } from "../../store/ProductsSlice/ProductsSlice";
 import { ProductsList } from "../../components/ProductsList/ProductsList";
@@ -42,9 +41,11 @@ export const Catalog = () => {
     );
   }, [filters, search, sort, page]);
 
-  React.useEffect(() => {
-    console.log(items);
-  }, [items]);
+  const handleSearchChange = React.useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) =>
+      dispatch(updateSearch(e.target.value)),
+    [dispatch, updateSearch]
+  );
 
   return (
     <main className={styles.Catalog}>
@@ -54,9 +55,7 @@ export const Catalog = () => {
             type="text"
             placeholder="Поиск..."
             value={search}
-            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-              dispatch(updateSearch(e.target.value))
-            }
+            onChange={handleSearchChange}
           />
           <ProductSort />
         </div>
@@ -73,7 +72,6 @@ export const Catalog = () => {
         />
       </section>
       <section className={styles.Bottom}>
-        {/* Пагинация */}
         <ProductPagination page={page} maxPage={maxPage} />
       </section>
     </main>

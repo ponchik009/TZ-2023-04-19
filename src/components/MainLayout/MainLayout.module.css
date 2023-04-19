@@ -1,9 +1,12 @@
 .Layout {
   width: 100%;
+  margin: auto;
+  max-width: 1170px;
 
   display: flex;
+  flex-direction: column;
 
-  align-items: center;
+  justify-content: center;
   padding: 128px 0;
 
   overflow-y: auto;
