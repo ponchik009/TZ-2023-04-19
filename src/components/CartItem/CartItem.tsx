@@ -2,6 +2,7 @@ import React from "react";
 
 import styles from "./CartItem.module.css";
 import { ProductWithCountType } from "../../types/types";
+import Button from "../../UI/Button/Button";
 
 interface ICartItemProps {
   item: ProductWithCountType;
@@ -30,11 +31,11 @@ export const CartItem: React.FC<ICartItemProps> = ({
         )}
       </span>
       <div className={styles.Count}>
-        <button onClick={onMinusClick}>-</button>
+        <Button title="-" onClick={onMinusClick} />
         <span>{item.count}</span>
-        <button onClick={onPlusClick}>+</button>
+        <Button title="+" onClick={onPlusClick} />
       </div>
-      <button onClick={onDeleteClick}>X</button>
+      <Button title="X" onClick={onDeleteClick} width="fit-content" />
     </li>
   );
 };

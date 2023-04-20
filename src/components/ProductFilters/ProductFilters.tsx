@@ -5,6 +5,7 @@ import styles from "./ProductFilters.module.css";
 import { BrandType } from "../../types/types";
 import { useAppDispatch } from "../../store/hooks";
 import { updateFilters } from "../../store/ProductsSlice/ProductsSlice";
+import Button from "../../UI/Button/Button";
 
 interface IProductFiltersProps {
   brands: BrandType[];
@@ -23,9 +24,11 @@ export const ProductFilters: React.FC<IProductFiltersProps> = ({
     <aside className={styles.Container}>
       <div className={styles.TitleSection}>
         <span className={styles.Title}>Бренды</span>
-        <button onClick={() => setIsOpened((prev) => !prev)}>
-          {isOpened ? "\u1431" : "\u142F"}
-        </button>
+        <Button
+          title={isOpened ? "\u1431" : "\u142F"}
+          onClick={() => setIsOpened((prev) => !prev)}
+          width="fit-content"
+        />
       </div>
       {isOpened && (
         <>
@@ -54,7 +57,11 @@ export const ProductFilters: React.FC<IProductFiltersProps> = ({
               </label>
             ))}
           </div>
-          <button onClick={() => dispatch(updateFilters([]))}>Очистить</button>
+          <Button
+            title="Очистить"
+            onClick={() => dispatch(updateFilters([]))}
+            width="fit-content"
+          />
         </>
       )}
     </aside>

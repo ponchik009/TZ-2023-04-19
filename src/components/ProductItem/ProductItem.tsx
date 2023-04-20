@@ -3,6 +3,7 @@ import React from "react";
 import { ProductType } from "../../types/types";
 
 import styles from "./ProductItem.module.css";
+import Button from "../../UI/Button/Button";
 
 interface IProductItemProps {
   item: ProductType;
@@ -28,7 +29,7 @@ export const ProductItem: React.FC<IProductItemProps> = ({
         <span>{item.brand.title}</span>
         <span>{currencyFormatter.format(item.regular_price.value)}</span>
         <div className={styles.CartSection}>
-          <button onClick={onButtonClick}>В корзину</button>
+          <Button title="В корзину" onClick={onButtonClick} />
           {countInCart > 0 && <span>В корзине: {countInCart}</span>}
         </div>
       </div>

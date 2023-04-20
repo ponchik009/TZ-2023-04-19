@@ -21,6 +21,27 @@
 
 .Count {
   display: flex;
+  justify-content: space-between;
+  max-width: 120px;
   align-items: center;
   gap: 8px;
+}
+
+.Item > *:nth-child(4) {
+  max-width: 48px;
+}
+
+@media (max-width: 638px) {
+  .Item {
+    align-items: start;
+    gap: 16px;
+    flex-direction: column;
+    position: relative;
+  }
+
+  .Item > *:nth-child(4) {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+  }
 }

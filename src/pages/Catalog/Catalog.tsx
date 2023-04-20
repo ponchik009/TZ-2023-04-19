@@ -19,6 +19,8 @@ import { ProductSort } from "../../components/ProductSort/ProductSort";
 import { ProductCart } from "../../components/ProductCart/ProductCart";
 import { ProductFilters } from "../../components/ProductFilters/ProductFilters";
 import { ProductPagination } from "../../components/ProductPagination/ProductPagination";
+import { useDebounce } from "../../hooks/useDebounce";
+import Input from "../../UI/Input/Input";
 
 export const Catalog = () => {
   const dispatch = useAppDispatch();
@@ -51,11 +53,11 @@ export const Catalog = () => {
     <main className={styles.Catalog}>
       <section className={styles.Top}>
         <div className={styles.TopSearch}>
-          <input
+          <Input
             type="text"
-            placeholder="Поиск..."
             value={search}
             onChange={handleSearchChange}
+            placeholder="Поиск..."
           />
           <ProductSort />
         </div>

@@ -4,6 +4,7 @@ import styles from "./ProductPagination.module.css";
 
 import { useAppDispatch } from "../../store/hooks";
 import { updatePage } from "../../store/ProductsSlice/ProductsSlice";
+import Button from "../../UI/Button/Button";
 
 interface IProductPaginationProps {
   page?: number;
@@ -18,15 +19,17 @@ export const ProductPagination: React.FC<IProductPaginationProps> = ({
 
   return (
     <div className={styles.Container}>
-      <button
-        disabled={page === 0}
+      <Button
+        title="<"
         onClick={() => dispatch(updatePage(page - 1))}
-      >{`<`}</button>
+        disabled={page === 0}
+      />
       {page + 1}
-      <button
-        disabled={page + 1 === maxPage}
+      <Button
+        title=">"
         onClick={() => dispatch(updatePage(page + 1))}
-      >{`>`}</button>
+        disabled={page + 1 === maxPage}
+      />
     </div>
   );
 };

@@ -1,6 +1,8 @@
 import React from "react";
 
 import styles from "./CartForm.module.css";
+import Button from "../../UI/Button/Button";
+import Input from "../../UI/Input/Input";
 
 interface ICartFormProps {
   onSubmit: (data: { name: string; phone: string }) => void;
@@ -16,20 +18,19 @@ export const CartForm: React.FC<ICartFormProps> = ({ onSubmit }) => {
   };
   return (
     <form className={styles.Form} onSubmit={onFormSubmit}>
-      <input
+      <Input
         type="text"
         placeholder="Имя"
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <input
+      <Input
         type="tel"
         placeholder="Телефон"
-        inputMode="tel"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
       />
-      <button type="submit">Оформить заказ</button>
+      <Button title="Оформить заказ" type="submit" onClick={() => {}} />
     </form>
   );
 };

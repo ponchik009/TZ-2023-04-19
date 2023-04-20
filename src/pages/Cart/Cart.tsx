@@ -13,6 +13,7 @@ import { CartList } from "../../components/CartList/CartList";
 import { Link, useNavigate } from "react-router-dom";
 import { CartForm } from "../../components/CartForm/CartForm";
 import { CartModal } from "../../components/CartModal/CartModal";
+import Button from "../../UI/Button/Button";
 
 export const Cart = () => {
   const navigate = useNavigate();
@@ -39,13 +40,13 @@ export const Cart = () => {
       {cartItems.length > 0 ? (
         <>
           <Link to={"/"}>
-            <button>В каталог</button>
+            <Button title="В каталог" onClick={() => {}} />
           </Link>
           <CartList items={cartItems} />
           <span>Общая стоимость: {currencyFormatter.format(totalPrice)}</span>
           <CartForm
             onSubmit={({ name, phone }) => {
-              // dispatch(submitOrder({ items: cartItems, name, phone }));
+              dispatch(submitOrder({ items: cartItems, name, phone }));
               setModalOpen(true);
             }}
           />
@@ -55,7 +56,7 @@ export const Cart = () => {
         <>
           <span>В корзине нет товаров! Вернитесь на страницу каталога</span>
           <Link to={"/"}>
-            <button>В каталог</button>
+            <Button title="В каталог" onClick={() => {}} />
           </Link>
         </>
       )}

@@ -7,11 +7,17 @@ export class CartApi {
     name: string;
     phone: string;
   }) {
-    return fetch("https://app.aaccent.su/js/confirm.php/", {
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const res = await axios.post(
+      "https://app.aaccent.su/js/confirm.php/",
+      data,
+      {
+        transformRequest: (data, headers) => {
+          delete headers["Content-Type"];
+          return data;
+        },
+      }
+    );
+
+    return res.data;
   }
 }
